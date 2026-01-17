@@ -15,7 +15,6 @@ app.use(cors({
 }))
 app.use(cookie_parser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 app.use('/api/v1/auth', authRoutes);

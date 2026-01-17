@@ -53,7 +53,6 @@ export const useAuthStore = create((set,get) => ({
     me: async () => {
         try {
             set({ loading: true });
-
             const res = await getMe();
             set({
                 user: res.user,

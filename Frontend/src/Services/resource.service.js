@@ -10,5 +10,18 @@ export const getResourceById = async (id) => {
     return res.data.data;
 }
 
+export const createResource = async (credentials) => {
+    const res = await api.post('/api/v1/resource/', credentials);
+    return res.data.data;
+}
+
+export const deleteResource = async (id) => {
+    const res = await api.delete(`/api/v1/resource/${id}`);
+    return res.data;
+}
+
+
+
+
 
 

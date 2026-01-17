@@ -6,6 +6,8 @@ const createResource = async (req,res) => {
     try {
         const { name, type, description, capacity, hourlyRate } = req.body;
         const imageURL = req.file ? req.file.path: '';
+
+        console.log('Data received:', req.file);
     
         if(!name || !type || !capacity || !hourlyRate) {
             return res.status(400).json({

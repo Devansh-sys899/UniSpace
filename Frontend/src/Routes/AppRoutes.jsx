@@ -6,6 +6,9 @@ import UserLayout from '../Layout/UserLayout';
 import OwnerLayout from '../Layout/OwnerLayout';
 import SignInPage from '../Pages/Auth/SignInPage';
 import SignUpPage from '../Pages/Auth/SignUpPage';
+import ResourceList from '../Pages/Resources/ResourceList';
+import CreateResource from '../Pages/Resources/CreateResource';
+import ResourceDetails from '../Pages/Resources/ResourceDetails';
 import UserDashboard from '../Pages/User/UserDashboard';
 import UserBookings from '../Pages/User/UserBookings';
 import OwnerDashboard from '../Pages/Owner/OwnerDashboard';
@@ -15,10 +18,14 @@ import HomePage from '../Pages/Public/HomePage';
 const AppRoutes = () => {
     return (
         <Routes>
-            //Public Routes
+            {/* Public Routes */}
             <Route element={<PublicLayout />} />
-            <Route path='sign-in' element={<SignInPage />} />
-            <Route path='sign-up' element={<SignUpPage />} />
+            <Route path='/sign-in' element={<SignInPage />} />
+            <Route path='/sign-up' element={<SignUpPage />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/resources' element={<ResourceList />} />  
+            <Route path='/resources/create' element={<CreateResource />} />
+            <Route path= '/resources/:id' element={<ResourceDetails />} />
             //User Routes
             <Route element={
                 <ProtectedRoute>
@@ -30,18 +37,18 @@ const AppRoutes = () => {
             <Route path='/user-dashboard' element={<UserDashboard />} />
             <Route path='/user-dashboard/bookings' element={<UserBookings />} />
         </Route>
-            //Owner Routes
+            {/* Owner Routes */}
             <Route element={
                 <ProtectedRoute>
-                    <RoleGuard roles={["Owner"]}>
+                    <RoleGuard roles={["Manager"]}>
                         <OwnerLayout />
                     </RoleGuard>  
                 </ProtectedRoute>
         }>
             <Route path='/owner-dashboard' element={<OwnerDashboard />} />
-            <Route path='/owner-dashboard/resources' element={<OwnerResources />} />            
+            <Route path='/owner-dashboard/resources' element={<ResourceList />} />            
         </Route>
-        <Route path='/' element={<HomePage />} />
+        
         </Routes>
     )
 }

@@ -8,7 +8,7 @@ const SignInPage = () => {
         <div> 
             <button
             onClick={() => {
-                login({ email: 'dishanahar791@gmail.com', password: 'dev@75211' })
+                login({ email: 'manager@gmail.com', password: 'manager@1234' })
                 me();
             }}
             >Login</button>

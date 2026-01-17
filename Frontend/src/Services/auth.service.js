@@ -11,7 +11,7 @@ export const handleRegister = async (credentials) => {
 }
 
 export const getMe = async () => {
-    const res = await api.get('/api/v1/auth/me');
+    const res = await api.get('/api/v1/auth/me', { withCredentials: true });
     return res.data;
 }
 
