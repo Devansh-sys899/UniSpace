@@ -1,14 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGetResourceById, useDeleteResource } from '../../Hooks/useResources';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../Hooks/useAuth';
 
 const ResourceDetails = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
-
     const { user } = useAuth();
     const { data: resource, isLoading, error } = useGetResourceById(id);
-    const { mutate: deleteResource, isPending } = useDeleteResource();
+    const { mutate: deleteResource, isPending } = useDeleteResource(id);
 
     if(isLoading) return <p>Loading Resource....</p>
     if(!resource) return <p>Resource not found.</p>
@@ -27,6 +26,21 @@ const ResourceDetails = () => {
         })
     }
 
+    const handleBooking = () => {
+        createBooking(
+            {
+                resource: resource._id,
+                startTime,
+                endTime
+            },
+            {
+                onSuccess: (data) => {
+                    console.log('Client Secret:', data.clientSecret);
+                }
+            }
+        )
+    }
+
     return (
         <div>
             <img src={resource.image} alt={resource.name} />
@@ -35,15 +49,9 @@ const ResourceDetails = () => {
             <p>Type: {resource.type}</p>
             <p>${resource.hourlyRate}/Hour</p>
             <p>Capacity: {resource.capacity}</p>
-
-            {(user?.role === 'Manager') && (
-                <button
-                onClick={handleDelete}
-                disabled={isPending}
-                >
-                    {isPending ? 'Deleting' : 'Delete Resource'}
-                </button>
-            )}
+            <Link to={`/${id}/create-booking`}>
+                <button>Book Now</button>
+            </Link>
         </div>
     )
 }

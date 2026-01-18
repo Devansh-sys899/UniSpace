@@ -8,6 +8,7 @@ import SignInPage from '../Pages/Auth/SignInPage';
 import SignUpPage from '../Pages/Auth/SignUpPage';
 import ResourceList from '../Pages/Resources/ResourceList';
 import CreateResource from '../Pages/Resources/CreateResource';
+import CreateBooking from '../Pages/Bookings/CreateBooking';
 import ResourceDetails from '../Pages/Resources/ResourceDetails';
 import UserDashboard from '../Pages/User/UserDashboard';
 import UserBookings from '../Pages/User/UserBookings';
@@ -26,6 +27,7 @@ const AppRoutes = () => {
             <Route path='/resources' element={<ResourceList />} />  
             <Route path='/resources/create' element={<CreateResource />} />
             <Route path= '/resources/:id' element={<ResourceDetails />} />
+            <Route path= '/:id/create-booking' element={<CreateBooking />} />
             //User Routes
             <Route element={
                 <ProtectedRoute>

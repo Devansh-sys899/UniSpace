@@ -1,6 +1,4 @@
-const { response } = require('express');
 const Resource = require('../Models/Resource');
-
 
 const createResource = async (req,res) => {
     try {
