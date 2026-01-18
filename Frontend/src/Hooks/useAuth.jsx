@@ -17,7 +17,7 @@ export const useAuth = () => {
         if(!authChecked) {
             me();
         }
-    }, []);
+    }, [authChecked]);
     
     console.log('[Auth]:', { user, isAuthenticated, loading });
     return {

@@ -8,8 +8,8 @@ const router = express.Router();
 
 router.get('/', getResources);
 router.get('/:id', getResourceById);
-router.post('/', handleAuth, restrictTo(['Admin']), uploadResourceImage, createResource);
-router.put('/:id', handleAuth, restrictTo(['Admin']), updateResources);
-router.delete('/:id', handleAuth, restrictTo(['Admin']), deleteResource);
+router.post('/', handleAuth, restrictTo(['Manager']), uploadResourceImage, createResource);
+router.put('/:id', handleAuth, restrictTo(['Manager']), updateResources);
+router.delete('/:id', handleAuth, restrictTo(['Manager']), deleteResource);
 
 module.exports = router;

@@ -39,10 +39,10 @@ const checkAvailabiltity = async (resource, start, end) => {
 
 const createPaymentIntent = async (req,res) => {
     try {
-
         const { resource, startTime, endTime } = req.body;
         const userId = req.user.id;
         const resourceDetails = await Resource.findById(resource);
+        console.log('resourceDetails:', resourceDetails);
         if(!resourceDetails) {
             return res.status(404).json({
                 success: false,
@@ -88,7 +88,7 @@ const createPaymentIntent = async (req,res) => {
             message: 'Stripe payment intent has been created successfully',
             paymentIntent: paymentIntent.id,
             bookingId: newBooking._id,
-            clientSecret: newBooking.clientSecret
+            clientSecret: newBooking.stripeClientSecret
         });
 
         } catch (error) {
@@ -171,7 +171,7 @@ const getBookingByResource = async (req,res) => {
     }
 }
 
-const getBookings = async (req,res) => {
+const getMyBookings = async (req,res) => {
     try {
         const userId = req.user._id;
         
@@ -196,5 +196,28 @@ const getBookings = async (req,res) => {
     }
 }
 
+const getAllBookings = async (req,res) => {
+    try {
+        const bookings = await Booking.find({});
+        if(!bookings) {
+            return res.status(404).json({
+                success: false,
+                message: 'Bookings not found'
+            })
+        }
+    
+        return res.status(200).json({
+            success: false,
+            bookings: bookings
+        })
+    } catch (error) {
+        console.log('Get all bookings error:', error);
+        return res.status(500).json({
+                success: false,
+                message: 'Unable to fetch bookings'
+        });
+    }
+}
 
-module.exports = { createPaymentIntent, verifyPayment, getBookingByResource, getBookings }; 
+
+module.exports = { createPaymentIntent, verifyPayment, getBookingByResource, getMyBookings, getAllBookings }; 

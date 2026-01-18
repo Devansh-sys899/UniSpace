@@ -20,7 +20,6 @@ const handleAuth = async (req,res,next) => {
         });
     }
     req.user = matchUser;
-    console.log('User Id:', req.user.id);
     next();
 }
 
