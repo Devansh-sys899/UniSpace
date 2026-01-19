@@ -9,6 +9,8 @@ import SignUpPage from '../Pages/Auth/SignUpPage';
 import ResourceList from '../Pages/Resources/ResourceList';
 import CreateResource from '../Pages/Resources/CreateResource';
 import CreateBooking from '../Pages/Bookings/CreateBooking';
+import CheckoutWrapper from '../Pages/Bookings/CheckoutWrapper';
+import PaymentSuccess from '../Pages/Bookings/PaymentSuccess';
 import ResourceDetails from '../Pages/Resources/ResourceDetails';
 import UserDashboard from '../Pages/User/UserDashboard';
 import UserBookings from '../Pages/User/UserBookings';
@@ -28,6 +30,8 @@ const AppRoutes = () => {
             <Route path='/resources/create' element={<CreateResource />} />
             <Route path= '/resources/:id' element={<ResourceDetails />} />
             <Route path= '/:id/create-booking' element={<CreateBooking />} />
+            <Route path= '/:id/checkout' element={<CheckoutWrapper />} />
+            <Route path= '/payment-success' element={<PaymentSuccess />} />
             //User Routes
             <Route element={
                 <ProtectedRoute>

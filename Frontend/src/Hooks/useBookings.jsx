@@ -1,16 +1,10 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
-import { getAllBookings, getMyBookings, getResourceBookings, createBooking, verifyPayment } from '../Services/booking.service'
+import { getAllBookings, getMyBookings, getResourceBookings, createBooking } from '../Services/booking.service'
 
 
 export const useCreateBooking = () => {
     return useMutation({
         mutationFn: createBooking
-    })
-}
-
-export const useVerifyBooking = () => {
-    return useMutation({
-        mutationFn: verifyPayment
     })
 }
 

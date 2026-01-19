@@ -11,7 +11,6 @@ export const useGetResources = () => {
 };
 
 export const useGetResourceById = (id) => {
-    console.log('Fetch resource hook called');
     return useQuery({
         queryKey: ['resource'],
         queryFn: () => getResourceById(id),

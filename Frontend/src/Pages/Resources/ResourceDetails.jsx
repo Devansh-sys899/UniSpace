@@ -13,8 +13,6 @@ const ResourceDetails = () => {
     if(!resource) return <p>Resource not found.</p>
     if(error) return <p>Failed to load resource.</p>
 
-    console.log('Resource Data:', resource);
-
     const handleDelete = () => {
         const confirm = window.confirm('Are you sure you want to delete this resource');
         if(!confirm) return;

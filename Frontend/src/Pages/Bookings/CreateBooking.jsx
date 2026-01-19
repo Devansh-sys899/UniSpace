@@ -29,8 +29,12 @@ const CreateBooking = () => {
             },
             {
                 onSuccess: (data) => {
-                    navigate(`/bookings/${resourceId}/payment`);
-                }
+                    navigate(`/${resourceId}/checkout`, { state : {
+                        clientSecret: data.clientSecret,
+                        bookingId: data.bookingId
+                    }});
+                },
+                onerror: (err) => console.log(err)
             }
         )
     }
