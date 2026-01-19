@@ -6,10 +6,10 @@ import App from './App.jsx'
 
 const queryClient = new QueryClient();
 
-createRoot(document.getElementById('root')).render(  
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </BrowserRouter>
+createRoot(document.getElementById('root')).render(
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </BrowserRouter>
 )

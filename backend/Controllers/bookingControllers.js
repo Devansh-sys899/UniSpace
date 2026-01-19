@@ -12,7 +12,7 @@ const calculatePriceAndDuration = (start, end, rate) => {
     const durationMs = (new Date(end).getTime() - new Date(start).getTime());
     const totalHours = durationMs / (1000 * 60 * 60);
     const price = totalHours * ratePerHr;
-    const finalPrice = price * 100;
+    const finalPrice = Math.round(price * 100);
     return {
         totalHours,
         finalPrice
@@ -104,6 +104,7 @@ const verifyPayment = async (req,res) => {
     try {
 
         const { bookingId, paymentIntent } = req.body;
+        console.log('Date received:', { bookingId, paymentIntent }); 
         
         if(!bookingId || !paymentIntent) { 
             return res.status(400).json({
