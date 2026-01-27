@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../Components/ProtectedRoute';
 import RoleGuard from '../Components/RoleGuard';
-import PublicLayout from '../Layout/PublicLayout';
 import UserLayout from '../Layout/UserLayout';
 import OwnerLayout from '../Layout/OwnerLayout';
 import SignInPage from '../Pages/Auth/SignInPage';
@@ -22,13 +21,11 @@ const AppRoutes = () => {
     return (
         <Routes>
             {/* Public Routes */}
-            <Route element={<PublicLayout />} />
+            <Route path='/' element={<HomePage />} />
             <Route path='/sign-in' element={<SignInPage />} />
             <Route path='/sign-up' element={<SignUpPage />} />
-            <Route path='/' element={<HomePage />} />
-            <Route path='/resources' element={<ResourceList />} />  
             <Route path='/resources/create' element={<CreateResource />} />
-            <Route path= '/resources/:id' element={<ResourceDetails />} />
+            
             <Route path= '/:id/create-booking' element={<CreateBooking />} />
             <Route path= '/:id/checkout' element={<CheckoutWrapper />} />
             <Route path= '/payment-success' element={<PaymentSuccess />} />
@@ -40,8 +37,10 @@ const AppRoutes = () => {
                     </RoleGuard>  
                 </ProtectedRoute>
         }>
-            <Route path='/user-dashboard' element={<UserDashboard />} />
             <Route path='/user-dashboard/bookings' element={<UserBookings />} />
+            <Route path='/user-dashboard' element={<UserDashboard />} />
+            <Route path='/user-dashboard/resources/' element={<ResourceList />} />
+            <Route path='/user-dashboard/resources/:id' element={<ResourceDetails />} />
         </Route>
             {/* Owner Routes */}
             <Route element={

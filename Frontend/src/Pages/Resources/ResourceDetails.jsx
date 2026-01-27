@@ -1,11 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGetResourceById, useDeleteResource } from '../../Hooks/useResources';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../Hooks/useAuth';
 
 const ResourceDetails = () => {
     const { id } = useParams();
-    const { user } = useAuth();
     const { data: resource, isLoading, error } = useGetResourceById(id);
     const { mutate: deleteResource, isPending } = useDeleteResource(id);
 
@@ -40,16 +38,20 @@ const ResourceDetails = () => {
     }
 
     return (
-        <div>
-            <img src={resource.image} alt={resource.name} />
-            <h1>{resource.name}</h1>
-            <p>{resource.description}</p>
-            <p>Type: {resource.type}</p>
-            <p>${resource.hourlyRate}/Hour</p>
-            <p>Capacity: {resource.capacity}</p>
-            <Link to={`/${id}/create-booking`}>
+        <div className='min-h-90 w-full grid grid-cols-2 gap-10'>
+            <img className='object-cover rounded-2xl' src={resource.image} alt={resource.name} />
+            <div className="flex flex-col gap-2">
+                <h1 className='text-surface_dark text-3xl font-semibold'>{resource.name}</h1>
+                <div className="flex gap-4">
+                    <p className='text-gray-600 text-base'> <span className='text-surface_dark font-semibold'>Type:</span> {resource.type}</p>
+                    <p className='text-gray-600 text-base'><span className='text-surface_dark font-semibold'>Capacity:</span> {resource.capacity}</p>
+                </div>
+                <p className='text-gray-600 text-base'><span className='text-surface_dark font-semibold'>Description:</span> {resource.description}</p>
+                <p>${resource.hourlyRate}/Hour</p>
+                <Link to={`/${id}/create-booking`}>
                 <button>Book Now</button>
-            </Link>
+                </Link>
+            </div>
         </div>
     )
 }

@@ -8,15 +8,17 @@ const ResourceList = () => {
     if(error) return <p>Failed to load Resources...</p>
 
     return (
-        <div>
-            <h1>Resources</h1>
+        <div className='flex flex-col gap-6'>
+            <h1 className='text-xl text-surface_dark font-semibold'>Resources</h1>
             {data.length === 0 && (
                 <p>No resources found</p>
             )}
 
-            <div>
+            <div className='grid grid-cols-4 gap-4'>
                 {data.map((resource) => (
-                    <ResourceCard key={resource._id} resource={resource} />
+                    <div key={resource._id}>
+                        <ResourceCard resource={resource} />
+                    </div>
                 ))}
             </div>
         </div>
