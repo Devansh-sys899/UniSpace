@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeaturesSection = () => {
     return (
-        <div className="max-w-100 flex flex-col gap-10 p-10">
+        <div className="max-w-full bg-surface_light flex flex-col gap-10 p-10">
             <div className="mx-auto flex flex-col gap-2">
                 <h1 className='text-4xl font-semibold text-surface_dark text-center'>Built for every stage of growth</h1>
                 <p className='text-gray-500 font-normal text-xl text-center'>Whether you're monetizing assets or seeking access, Unispace adapts to <br /> your needs.</p>

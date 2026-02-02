@@ -22,7 +22,7 @@ export default function QuickStats({ label, value, color, iconColor, icon }) {
                 <p className="text-sm text-muted-foreground font-medium">
                     {label}
                 </p>
-                <h3 className="text-3xl font-bold text-foreground mt-2">
+                <h3 className="text-3xl font-semibold text-foreground mt-2">
                     {value}
                 </h3>
             </div>

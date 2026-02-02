@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchUserMetrics } from "../../Services/metrics";
 import BookingHero from "../../Components/Booking/BookingHero";
 import QuickStats from "../../Components/Resources/QuickStats";
-import ResourceList from "../Resources/ResourceList";
+import UserResourcesPage from "../Resources/UserResourcesPage";
 
 const UserDashboard = () => {
     const [metrics, setMetrics] = useState(null);
@@ -58,7 +58,7 @@ const UserDashboard = () => {
             </div>
 
             <BookingHero />
-            <ResourceList />
+            <UserResourcesPage />
         </main>
     );
 };

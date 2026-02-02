@@ -2,6 +2,7 @@ import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../Services/api';
+import { toast } from 'react-toastify';
 
 const CheckoutPage = ({ bookingId }) => {
     const stripe = useStripe();
@@ -31,7 +32,7 @@ const CheckoutPage = ({ bookingId }) => {
 
         await api.post('/api/v1/booking/verify-payment', { bookingId, paymentIntent: paymentIntent.id });
         navigate(`/user-dashboard`);
-        alert('Booking created successfully');
+        toast.success('Booking created successfully');
     };
 
     return (

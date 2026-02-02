@@ -1,5 +1,5 @@
-import Sidebar from '../Layout/Sidebar';
-import TopBar from '../Layout/TopBar';
+import UserSidebar from './UserSidebar';
+import TopBar from './TopBar';
 import { Outlet } from 'react-router-dom';
 
 
@@ -8,7 +8,7 @@ export default function Dashboard() {
     return (
         <div className="flex h-screen bg-background">
             {/* Sidebar */}
-            <Sidebar />
+            <UserSidebar />
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col">
