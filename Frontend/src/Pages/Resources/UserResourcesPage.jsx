@@ -14,7 +14,7 @@ const UserResourcesPage = () => {
                 <p>No resources found</p>
             )}
 
-            <div className='grid grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1'>
+            <div className='grid lg:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1'>
                 {data.map((resource) => (
                     <div key={resource._id}>
                         <ResourceCard resource={resource} isManager={false} onDelete={null} />
