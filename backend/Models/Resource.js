@@ -8,7 +8,7 @@ const resourceSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['Equipment', 'Room', 'Desk'],
+        enum: ['Equipment', 'Room', 'Space'],
         required: true
     },
     image: {

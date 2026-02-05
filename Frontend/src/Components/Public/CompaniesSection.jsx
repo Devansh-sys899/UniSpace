@@ -2,7 +2,7 @@ import React from 'react';
 
 const CompaniesSection = () => {
     return (
-        <div className="bg-surface_light w-full border-y-2 overflow-hidden border-border py-10 flex flex-col gap-10">
+        <div className="bg-surface_light w-screen border-y-2 overflow-hidden border-border py-10 flex flex-col items-center gap-10">
             <h2 className='text-gray-500 text-center text-md'>Trusted by Industry Leader Worldwide</h2>
             <div className="mx-auto flex items-center justify-center gap-10">
                 <div className="flex gap-2">

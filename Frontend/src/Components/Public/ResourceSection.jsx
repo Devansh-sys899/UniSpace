@@ -10,7 +10,7 @@ const ResourceSection = () => {
                 <h1 className="text-4xl text-surface_dark font-semibold">Features Resources</h1>
                 <p className="text-gray-600 font-normal text-xl">Explore premium facilities available for immediate booking.</p>
             </div>
-            <div className="grid grid-cols-4 gap-8 w-full">
+            <div className="relative grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 sm:px-10 sm:right-10 gap-8 w-full">
                 <div className="bg-white flex flex-col justify-center pb-6 gap-1 rounded-xl border-2 border-border">
                     <img src={techLab} alt="Tech Lab" />
                     <h1 className="text-surface_dark font-[550] text-xl mt-6 ml-5">Tech Lab 4</h1>

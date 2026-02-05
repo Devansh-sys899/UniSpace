@@ -65,20 +65,8 @@ const ResourceDetails = () => {
         )
     }   
     
-    const handleDelete = () => {
-        const confirm = window.confirm('Are you sure you want to delete this resource');
-        if(!confirm) return;
-
-        deleteResource(id, {
-            onSuccess: () => {
-                navigate('/resources');
-            }
-        })
-    }
-
-
     return (
-        <div className='min-h-90 w-full grid grid-cols-[7fr_3fr] gap-10'>
+        <div className='min-h-90 w-full grid lg:grid-cols-[7fr_3fr] md:grid-cols-1 sm:grid-cols-1 gap-10'>
             <div className="flex flex-col gap-2">
                 <div className="w-24 p-6 py-2 rounded-3xl text-xs flex items-center justify-center bg-gray-100 text-accent">{resource.type}</div>
                 <h1 className='text-surface_dark text-[38px] font-semibold'>{resource.name}</h1>
@@ -154,7 +142,7 @@ const ResourceDetails = () => {
                         </div>
                     </div>
             </div>
-            <div className="space-y-6 sticky top-10">
+            <div className="space-y-6 sticky top-10 md:p-10 sm:p-10">
                 <Calendar bookedDates={['09', '10', '15']} onSelect={setSelectedDate} />
                 {selectedSlots && (
                     <>

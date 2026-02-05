@@ -7,7 +7,7 @@ const FeaturesSection = () => {
                 <h1 className='text-4xl font-semibold text-surface_dark text-center'>Built for every stage of growth</h1>
                 <p className='text-gray-500 font-normal text-xl text-center'>Whether you're monetizing assets or seeking access, Unispace adapts to <br /> your needs.</p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 md:px-10 gap-4">
                 <div className='bg-white rounded-xl py-10 flex flex-col items-start pl-8 gap-2'>
                     <div className="p-2 py-1 bg-blue-100 rounded-3xl">
                         <p className="text-base text-primary">For Enterprise</p>
