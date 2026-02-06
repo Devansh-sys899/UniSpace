@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://unispace-9laxnh5wl-dishanahar791-7222s-projects.vercel.app/',
     credentials: true
 }))
 app.use(cookie_parser());
