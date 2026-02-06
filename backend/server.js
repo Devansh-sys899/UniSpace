@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://unispace-rho.vercel.app/',
+    origin: '*',
     credentials: true
 }))
 app.use(cookie_parser());
@@ -22,7 +22,6 @@ app.use('/api/v1/booking', bookingRoutes);
 app.use('/api/v1/resource', resourceRoutes);
 
 app.get('/', (req,res) => {
-    console.log('Welcome to the Unispace');
     return res.status(200).json({
         success: true,
         message: 'Welcome to the UniSpace'
