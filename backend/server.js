@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://unispace-git-main-dishanahar791-7222s-projects.vercel.app',
+    origin: 'https://unispace-1315.onrender.com',
     credentials: true
 }))
 app.use(cookie_parser());
