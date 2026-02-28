@@ -22,8 +22,10 @@ const SignInPage = () => {
         login(form);
         if(user.role === 'User') {
             navigate('/user-dashboard');
-        } else {
+        } else if(user.role === 'Manager') {
             navigate('/manager-dashboard');
+        } else {
+            navigate('/');
         }
     }
 
